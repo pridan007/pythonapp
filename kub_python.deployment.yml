@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pythonapp-deployment
+spec:
+  selector:
+    matchLabels:
+      app: pythonapp
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: pythonapp
+    spec:
+      containers:
+      - name: pythonapp
+        image: docker.io/pridan5730/pythonapp
+        ports:
+        - containerPort: 5000
